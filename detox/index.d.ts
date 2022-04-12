@@ -15,7 +15,6 @@ declare global {
     const expect: Detox.DetoxExportWrapper['expect'];
     const by: Detox.DetoxExportWrapper['by'];
     const web: Detox.DetoxExportWrapper['web'];
-    const detoxCircus: Detox.DetoxCircus;
 
     namespace NodeJS {
         interface Global {
@@ -25,7 +24,6 @@ declare global {
             expect: Detox.DetoxExportWrapper['expect'];
             by: Detox.DetoxExportWrapper['by'];
             web: Detox.DetoxExportWrapper['web'];
-            detoxCircus: Detox.DetoxCircus;
         }
     }
 

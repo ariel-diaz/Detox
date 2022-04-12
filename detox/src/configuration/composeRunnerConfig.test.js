@@ -13,20 +13,6 @@ describe('composeRunnerConfig', () => {
     });
   });
 
-  it('should take .testRunner from globalConfig', () => {
-    globalConfig.testRunner = 'jest';
-    expect(composeRunnerConfig().testRunner).toBe('jest');
-  });
-
-  it('should take .test-runner from globalConfig', () => {
-    globalConfig['test-runner'] = 'jest';
-    expect(composeRunnerConfig().testRunner).toBe('jest');
-  });
-
-  it('should set .testRunner to "mocha" by default', () => {
-    expect(composeRunnerConfig().testRunner).toBe('mocha');
-  });
-
   it('should take .runnerConfig from CLI', () => {
     globalConfig.runnerConfig = 'from/config.json';
     cliConfig.runnerConfig = 'from/cli.json';
@@ -48,12 +34,7 @@ describe('composeRunnerConfig', () => {
     expect(composeRunnerConfig().runnerConfig).toBe('from/config.json');
   });
 
-  it('should set .runnerConfig to e2e/mocha.opts if .testRunner is mocha', () => {
-    globalConfig.testRunner = 'mocha';
-    expect(composeRunnerConfig().runnerConfig).toBe('e2e/mocha.opts');
-  });
-
-  it('should set .runnerConfig to e2e/config.json if .testRunner is jest', () => {
+  it('should set .runnerConfig to e2e/config.json by default', () => {
     globalConfig.testRunner = 'jest';
     expect(composeRunnerConfig().runnerConfig).toBe('e2e/config.json');
   });
